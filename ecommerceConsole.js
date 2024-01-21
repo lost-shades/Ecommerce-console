@@ -27,9 +27,15 @@ function selectItems() {
   if (selected === 0){
     displaySelected();
     if (cart.length === 0) {
-      console.log('Empty cart. Add an item')
-      startShopping();
-    } else {
+      console.log('Empty cart.')
+      const action = prompt('press q to quit shopping or c to view collections again');
+      if (action === 'q') {
+        console.log('Thanks for checking us out!');
+      } else if (action === 'c') {
+        startShopping();
+      }
+    } 
+    else {
     // proceeds to payment or just close it
     const action = prompt('Would you like to proceed to payment? (yes/no)').toLowerCase();
     
