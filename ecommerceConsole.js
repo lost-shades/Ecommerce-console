@@ -26,15 +26,20 @@ function selectItems() {
   const selected = Number(prompt('enter ID to add to cart or 0 to checkout'));
   if (selected === 0){
     displaySelected();
+    if (cart.length === 0) {
+      console.log('Empty cart. Add an item')
+      startShopping();
+    } else {
     // proceeds to payment or just close it
     const action = prompt('Would you like to proceed to payment? (yes/no)').toLowerCase();
-
+    
     if (action === 'yes') {
       console.log('Proceeding to payment... Thank you for shopping!');
       // navigate to payment page
     } else {
       console.log('Your items are saved in cart!');
     }
+  }
 
   } else {
     addToCart(selected);
